@@ -181,22 +181,6 @@ button {
   max-width: 100%;
 }
 
-.image-carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-top: -12vh;
-  position: relative;
-}
-
-.image-carousel .controls {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .carousel-control {
   padding: 1rem;
   color: #ffffff;
@@ -207,10 +191,6 @@ button {
   .carousel-control {
     font-size: 3rem;
   }
-}
-
-.image-carousel img {
-  width: 100%;
 }
 
 body.modal-open {

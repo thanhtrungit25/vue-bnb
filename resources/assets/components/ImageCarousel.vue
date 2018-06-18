@@ -59,4 +59,23 @@ export default {
 </script>
 
 <style>
+.image-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: -12vh;
+  position: relative;
+}
+
+.image-carousel img {
+  width: 100%;
+}
+
+.image-carousel .controls {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 </style>
