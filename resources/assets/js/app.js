@@ -1,3 +1,4 @@
+import 'core-js/fn/object/assign';
 import Vue from 'vue';
 import sample from './data';
 
