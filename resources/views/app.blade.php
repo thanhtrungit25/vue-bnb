@@ -8,6 +8,11 @@
   <title>Vuebnb</title>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
   <link rel="shortcut icon" href="{{{ asset('favicon.ico') }}}">
+  <script type="text/javascript">
+    // console.log({{ $model['id'] }});
+    var model = "{!! addslashes(json_encode($model)) !!}";
+    console.log(JSON.parse(model));
+  </script>
 </head>
 
 <body>
