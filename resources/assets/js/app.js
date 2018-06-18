@@ -1,7 +1,11 @@
 import 'core-js/fn/object/assign';
 import Vue from 'vue';
+import { populateAmenitiesAndPrices } from './helpers';
 
 let model = JSON.parse(window.vuebnb_listing_model);
+// console.log('model before', model);
+model = populateAmenitiesAndPrices(model);
+// console.log('model after', model);
 
 var app = new Vue({
   el: '#app',
