@@ -11,7 +11,7 @@ var app = new Vue({
   el: '#app',
   data: Object.assign(model, {
     headerImageStyle: {
-      'background-image': 'url(/images/header.jpg)',
+      'background-image': `url(${model.images[0]})`,
     },
     contracted: true,
     modalOpen: false,

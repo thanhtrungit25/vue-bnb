@@ -66,7 +66,7 @@
     <div id="modal" v-bind:class="{ show: modalOpen }">
       <button v-on:click="modalOpen = false" class="modal-close">&times;</button>
       <div class="modal-content">
-        <img src="{{ asset('images/header.jpg') }}">
+        <img v-bind:src="images[0]">
       </div>
     </div>
   </div>
