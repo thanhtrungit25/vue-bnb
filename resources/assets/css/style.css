@@ -66,20 +66,6 @@ hr {
   white-space: pre-wrap;
 }
 
-.header {
-  height: 320px;
-}
-
-.header .header-img {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-color: #f5f5f5;
-  height: 100%;
-  cursor: pointer;
-  position: relative;
-}
-
 .list {
   display: flex;
   flex-wrap: nowrap;
@@ -122,23 +108,6 @@ hr {
   overflow: hidden;
 }
 
-button {
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  white-space: nowrap;
-  cursor: pointer;
-  display: inline-block;
-  margin-bottom: 0;
-  border-radius: 4px;
-  border: 1px solid #c4c4c4;
-  line-height: 1.43;
-  background: white;
-  padding: 7px 18px;
-  color: #484848;
-  font-size: 14px;
-}
-
 .about button.more {
   background: transparent;
   border: 0;
@@ -146,12 +115,6 @@ button {
   padding: 0;
   font-size: 17px;
   font-weight: bold;
-}
-
-.header .header-img .view-photos {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
 }
 
 .modal-content img {

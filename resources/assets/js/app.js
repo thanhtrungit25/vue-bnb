@@ -3,19 +3,15 @@ import Vue from 'vue';
 import { populateAmenitiesAndPrices } from './helpers';
 
 let model = JSON.parse(window.vuebnb_listing_model);
-// console.log('model before', model);
 model = populateAmenitiesAndPrices(model);
-// console.log('model after', model);
 
 import ImageCarousel from '../components/ImageCarousel.vue';
 import ModalWindow from '../components/ModalWindow.vue';
+import HeaderImage from '../components/HeaderImage.vue';
 
 var app = new Vue({
   el: '#app',
   data: Object.assign(model, {
-    headerImageStyle: {
-      'background-image': `url(${model.images[0]})`,
-    },
     contracted: true,
   }),
   methods: {
@@ -26,9 +22,6 @@ var app = new Vue({
   components: {
     ImageCarousel,
     ModalWindow,
+    HeaderImage,
   },
 });
-
-setTimeout(function() {
-  app.message = 'Goodbye world!!!';
-}, 2000);
