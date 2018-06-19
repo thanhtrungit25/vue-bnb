@@ -18,6 +18,11 @@ var app = new Vue({
     },
     contracted: true,
   }),
+  methods: {
+    openModal() {
+      this.$refs.imagemodal.modalOpen = true;
+    },
+  },
   components: {
     ImageCarousel,
     ModalWindow,
