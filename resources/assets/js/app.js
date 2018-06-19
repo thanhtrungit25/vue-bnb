@@ -9,12 +9,11 @@ import ImageCarousel from '../components/ImageCarousel.vue';
 import ModalWindow from '../components/ModalWindow.vue';
 import HeaderImage from '../components/HeaderImage.vue';
 import FeatureList from '../components/FeatureList.vue';
+import ExpandableText from '../components/ExpandableText.vue';
 
 var app = new Vue({
   el: '#app',
-  data: Object.assign(model, {
-    contracted: true,
-  }),
+  data: Object.assign(model, {}),
   methods: {
     openModal() {
       this.$refs.imagemodal.modalOpen = true;
@@ -25,5 +24,6 @@ var app = new Vue({
     ModalWindow,
     HeaderImage,
     FeatureList,
+    ExpandableText,
   },
 });
