@@ -8,6 +8,7 @@ model = populateAmenitiesAndPrices(model);
 import ImageCarousel from '../components/ImageCarousel.vue';
 import ModalWindow from '../components/ModalWindow.vue';
 import HeaderImage from '../components/HeaderImage.vue';
+import FeatureList from '../components/FeatureList.vue';
 
 var app = new Vue({
   el: '#app',
@@ -23,5 +24,6 @@ var app = new Vue({
     ImageCarousel,
     ModalWindow,
     HeaderImage,
+    FeatureList,
   },
 });

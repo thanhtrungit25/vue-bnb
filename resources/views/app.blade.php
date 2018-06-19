@@ -37,30 +37,18 @@
           <button v-if="contracted" class="more" v-on:click="contracted = false">+More</button>
         </div>
         <div class="lists">
-          <hr>
-          <div class="amentities list">
-            <div class="title">
-              <strong>Amentities</strong>
+          <feature-list title="Amentities">
+            <div class="list-item" v-for="amentity in amenities">
+              <i class="fa fa-lg" v-bind:class="amentity.icon"></i>
+              <span>@{{ amentity.title }}</span>
             </div>
-            <div class="content">
-              <div class="list-item" v-for="amentity in amenities">
-                <i class="fa fa-lg" v-bind:class="amentity.icon"></i>
-                <span>@{{ amentity.title }}</span>
-              </div>
+          </feature-list>
+          <feature-list title="Prices">
+            <div class="list-item" v-for="price in prices">
+              @{{ price.title }}:
+              <strong>@{{ price.value }}</strong>
             </div>
-          </div>
-          <hr>
-          <div class="prices list">
-            <div class="title">
-              <strong>Prices</strong>
-            </div>
-            <div class="content">
-              <div class="list-item" v-for="price in prices">
-                @{{ price.title }}:
-                <strong>@{{ price.value }}</strong>
-              </div>
-            </div>
-          </div>
+          </feature-list>
         </div>
       </div>
     </div>
