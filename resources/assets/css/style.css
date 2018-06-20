@@ -4,6 +4,9 @@ body {
   font-size: 17px;
   margin: 0;
 }
+html body {
+  overflow-x: hidden;
+}
 
 .container {
   margin: 0 auto;
