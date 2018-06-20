@@ -38,6 +38,6 @@ class ListingController extends Controller
 		});
 
 		$data = collect(['listings' => $collection->toArray()]);
-		return view('app', ['data' => []]);
+		return view('app', ['data' => $data]);
 	}
 }
