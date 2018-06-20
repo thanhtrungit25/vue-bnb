@@ -10,8 +10,7 @@
   <link rel="stylesheet" href="{{ asset('css/vue-style.css') }}" type="text/css">
   <link rel="shortcut icon" href="{{{ asset('favicon.ico') }}}">
   <script type="text/javascript">
-    // console.log({{ $model['id'] }});
-    window.vuebnb_listing_model = "{!! addslashes(json_encode($model)) !!}";
+    window.vuebnb_server_data = "{!! addslashes(json_encode($data)) !!}";
   </script>
 </head>
 
