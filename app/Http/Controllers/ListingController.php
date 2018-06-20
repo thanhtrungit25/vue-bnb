@@ -22,12 +22,19 @@ class ListingController extends Controller
 		$data = $this->get_listing($listing);
 		return response()->json($data);
 	}
-	public function get_listing_web(Listing $listing)
+	private function get_meta_data($collection, $request)
+	{
+		return $collection->merge([
+			'path' => $request->getPathInfo()
+		]);
+	}
+	public function get_listing_web(Listing $listing, Request $request)
 	{
 		$data = $this->get_listing($listing);
+		$data = $this->get_meta_data($data, $request);
 		return view('app', ['data' => $data]);
 	}
-	public function get_home_web()
+	public function get_home_web(Request $request)
 	{
 		$collection = Listing::all(['id', 'address', 'title', 'price_per_night']);
 		$collection->transform(function($listing) {
@@ -38,6 +45,8 @@ class ListingController extends Controller
 		});
 
 		$data = collect(['listings' => $collection->toArray()]);
+		$data = $this->get_meta_data($data, $request);
+
 		return view('app', ['data' => $data]);
 	}
 }
