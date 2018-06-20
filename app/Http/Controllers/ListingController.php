@@ -34,7 +34,8 @@ class ListingController extends Controller
 		$data = $this->get_meta_data($data, $request);
 		return view('app', ['data' => $data]);
 	}
-	public function get_home_web(Request $request)
+
+	private function get_listing_summaries()
 	{
 		$collection = Listing::all(['id', 'address', 'title', 'price_per_night']);
 		$collection->transform(function($listing) {
@@ -43,10 +44,19 @@ class ListingController extends Controller
 			);
 			return $listing;
 		});
+		return collect(['listings' => $collection->toArray()]);
+	}
 
-		$data = collect(['listings' => $collection->toArray()]);
+	public function get_home_web(Request $request)
+	{
+		$data = $this->get_listing_summaries();
 		$data = $this->get_meta_data($data, $request);
-
 		return view('app', ['data' => $data]);
+	}
+
+	public function get_home_api()
+	{
+		$data = $this->get_listing_summaries();
+		return response()->json($data);
 	}
 }
