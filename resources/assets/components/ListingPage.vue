@@ -6,7 +6,7 @@
       @header-clicked="openModal"
     >
     </header-image>
-    <div class="container">
+    <div class="listing-container">
       <div class="heading">
         <h1>{{ title }}</h1>
         <p>{{ address }}</p>
