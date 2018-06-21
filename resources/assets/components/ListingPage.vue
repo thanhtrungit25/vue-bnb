@@ -1,6 +1,7 @@
 <template>
   <div>
     <header-image
+      v-if="images[0]"
       :image-url="images[0]"
       @header-clicked="openModal"
     >
