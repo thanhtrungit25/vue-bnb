@@ -15,13 +15,13 @@ import { groupByCountry } from '../js/helpers';
 import ListingSummaryGroup from './ListingSummaryGroup.vue';
 
 export default {
-  data() {
-    return {
-      listing_groups: [],
-    };
-  },
   components: {
     ListingSummaryGroup,
+  },
+  computed: {
+    listing_groups() {
+      return groupByCountry(this.$store.state.listing_summaries);
+    },
   },
 };
 </script>
