@@ -10,9 +10,11 @@
         <div class="info address">{{ listing.address }}</div>
       </div>
     </router-link>
+    <listing-save :id="listing.id"></listing-save>
   </div>
 </template>
 <script>
+import ListingSave from './ListingSave.vue';
 export default {
   props: ['listing'],
   computed: {
@@ -22,13 +24,17 @@ export default {
       };
     },
   },
+  components: {
+    ListingSave,
+  },
 };
 </script>
 <style>
-.listing-summaries {
+.listing-summary {
   flex: 0 0 auto;
+  position: relative;
 }
-.listing-summaries a {
+.listing-summary a {
   text-decoration: none;
 }
 .wrapper {
