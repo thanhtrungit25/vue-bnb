@@ -5,11 +5,13 @@
       :style="headerImageStyle"
       @click="$emit('header-clicked')"
     >
+      <listing-save :id="id"></listing-save>
       <button class="view-photos">View Photos</button>
     </div>
   </div>
 </template>
 <script>
+import ListingSave from './ListingSave';
 export default {
   computed: {
     headerImageStyle() {
@@ -18,7 +20,10 @@ export default {
       };
     },
   },
-  props: ['image-url'],
+  props: ['image-url', 'id'],
+  components: {
+    ListingSave,
+  },
 };
 </script>
 <style>
