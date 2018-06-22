@@ -8,7 +8,7 @@ export default {
   props: ['id'],
   methods: {
     toggleSaved() {
-      // Implement this
+      this.$store.commit('toggleSaved', this.id);
     },
   },
 };
