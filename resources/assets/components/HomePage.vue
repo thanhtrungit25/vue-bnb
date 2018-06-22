@@ -11,12 +11,10 @@
 </template>
 
 <script>
-import routeMixin from '../js/route-mixin';
 import { groupByCountry } from '../js/helpers';
 import ListingSummaryGroup from './ListingSummaryGroup.vue';
 
 export default {
-  mixins: [routeMixin],
   data() {
     return {
       listing_groups: [],
@@ -24,11 +22,6 @@ export default {
   },
   components: {
     ListingSummaryGroup,
-  },
-  methods: {
-    assignData({ listings }) {
-      this.listing_groups = groupByCountry(listings);
-    },
   },
 };
 </script>

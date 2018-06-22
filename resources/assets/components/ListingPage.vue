@@ -42,7 +42,6 @@
 
 <script>
 import { populateAmenitiesAndPrices } from '../js/helpers';
-import routeMixin from '../js/route-mixin';
 
 import ImageCarousel from '../components/ImageCarousel.vue';
 import ModalWindow from '../components/ModalWindow.vue';
@@ -51,7 +50,6 @@ import FeatureList from '../components/FeatureList.vue';
 import ExpandableText from '../components/ExpandableText.vue';
 
 export default {
-  mixins: [routeMixin],
   data() {
     return {
       title: null,
@@ -64,9 +62,6 @@ export default {
     };
   },
   methods: {
-    assignData({ listing }) {
-      Object.assign(this.$data, populateAmenitiesAndPrices(listing));
-    },
     openModal() {
       this.$refs.imagemodal.modalOpen = true;
     },
