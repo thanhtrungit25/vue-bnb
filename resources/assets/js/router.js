@@ -5,6 +5,7 @@ import store from './store';
 
 import ListingPage from '../components/ListingPage.vue';
 import HomePage from '../components/HomePage.vue';
+import SavedPage from '../components/SavedPage.vue';
 
 Vue.use(VueRouter);
 
@@ -13,6 +14,7 @@ let router = new VueRouter({
   routes: [
     { path: '/', component: HomePage, name: 'home' },
     { path: '/listing/:listing', component: ListingPage, name: 'listing' },
+    { path: '/saved', component: SavedPage, name: 'saved' },
   ],
   scrollBehavior(to, from, savedPosition) {
     return { x: 0, y: 0 };

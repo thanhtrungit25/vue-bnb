@@ -29,6 +29,16 @@ html body {
   }
 }
 
+.saved-container {
+  margin: 0 auto;
+  padding: 0 25px;
+}
+@media (min-width: 1131px) {
+  .saved-container {
+    width: 1080px;
+  }
+}
+
 .heading {
   margin-bottom: 2em;
 }
