@@ -25,4 +25,9 @@ export default new Vuex.Store({
       }
     },
   },
+  getters: {
+    getListing(state) {
+      return id => state.listings.find(listing => id == listing.id);
+    },
+  },
 });
