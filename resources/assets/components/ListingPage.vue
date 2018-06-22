@@ -1,29 +1,29 @@
 <template>
   <div>
     <header-image
-      v-if="images[0]"
-      :image-url="images[0]"
+      v-if="listing.images[0]"
+      :image-url="listing.images[0]"
       @header-clicked="openModal"
-      :id="id"
+      :id="listing.id"
     >
     </header-image>
     <div class="listing-container">
       <div class="heading">
-        <h1>{{ title }}</h1>
-        <p>{{ address }}</p>
+        <h1>{{ listing.title }}</h1>
+        <p>{{ listing.address }}</p>
         <hr>
         <div class="about">
           <h3>About this listing</h3>
-          <expandable-text>{{ about }}</expandable-text>
+          <expandable-text>{{ listing.about }}</expandable-text>
         </div>
         <div class="lists">
-          <feature-list title="Amentities" :items="amenities">
+          <feature-list title="Amentities" :items="listing.amenities">
             <template slot-scope="amentity">
               <i class="fa fa-lg" v-bind:class="amentity.icon"></i>
               <span>{{ amentity.title }}</span>
             </template>
           </feature-list>
-          <feature-list title="Prices" :items="prices">
+          <feature-list title="Prices" :items="listing.prices">
             <template slot-scope="price">
               {{ price.title }}:
               <strong>{{ price.value }}</strong>
@@ -34,7 +34,7 @@
     </div>
     <!--  -->
     <modal-window ref="imagemodal">
-      <image-carousel :images="images"></image-carousel>  
+      <image-carousel :images="listing.images"></image-carousel>  
     </modal-window>
     <!--  -->
   </div>  
@@ -50,17 +50,6 @@ import FeatureList from '../components/FeatureList.vue';
 import ExpandableText from '../components/ExpandableText.vue';
 
 export default {
-  data() {
-    return {
-      title: null,
-      about: null,
-      address: null,
-      amenities: [],
-      prices: [],
-      images: [],
-      id: null,
-    };
-  },
   methods: {
     openModal() {
       this.$refs.imagemodal.modalOpen = true;
@@ -73,7 +62,17 @@ export default {
     FeatureList,
     ExpandableText,
   },
+  computed: {
+    listing() {
+      // debugger;
+      let listing = this.$store.state.listings.find(
+        listing => listing.id == this.$route.params.listing,
+      );
+      return populateAmenitiesAndPrices(listing);
+    },
+  },
 };
+console.log(this.$store);
 </script>
 
 <style>

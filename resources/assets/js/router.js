@@ -24,10 +24,12 @@ router.beforeEach((to, from, next) => {
   if (!serverData.path || to.path !== serverData.path) {
     axios.get(`/api${to.path}`).then(({ data }) => {
       store.commit('addData', { route: to.name, data });
+      next();
     });
   } else {
     // load initial serverData
     store.commit('addData', { route: to.name, data: serverData });
+    next();
   }
 });
 
