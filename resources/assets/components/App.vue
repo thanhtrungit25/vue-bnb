@@ -9,6 +9,20 @@
         <li>
           <router-link :to="{ name: 'saved' }">Saved</router-link>
         </li>
+        <li>
+          <router-link :to="{ name: 'login' }">Log In</router-link>
+        </li>
+        <li>
+          <a @click="logout">Log Out</a>
+          <form
+            style="display:hidden"
+            action="/logout"
+            method="POST"
+            id="logout"
+          >
+            <input type="hidden" name="_token" :value="csrf_token">
+          </form>
+        </li>
       </ul>
     </div>
     <router-view></router-view>
@@ -19,6 +33,16 @@
 <script>
 import CustomFooter from './CustomFooter.vue';
 export default {
+  data() {
+    return {
+      csrf_token: window.csrf_token,
+    };
+  },
+  methods: {
+    logout() {
+      document.getElementById('logout').submit();
+    },
+  },
   components: {
     CustomFooter,
   },
