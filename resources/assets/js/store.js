@@ -7,6 +7,7 @@ export default new Vuex.Store({
     saved: [],
     listing_summaries: [],
     listings: [],
+    auth: false,
   },
   mutations: {
     toggleSaved(state, id) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
       }
     },
     addData(state, { route, data }) {
+      if (data.auth) {
+        state.auth = data.auth;
+      }
       if (route === 'listing') {
         state.listings.push(data.listing);
       } else {
