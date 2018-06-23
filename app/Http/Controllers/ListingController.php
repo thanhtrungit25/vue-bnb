@@ -27,7 +27,8 @@ class ListingController extends Controller
 	{
 		return $collection->merge([
 			'path' => $request->getPathInfo(),
-			'auth' => Auth::check()
+			'auth' => Auth::check(),
+			'saved' => Auth::check() ? Auth::user()->saved : []
 		]);
 	}
 	public function get_listing_web(Listing $listing, Request $request)
