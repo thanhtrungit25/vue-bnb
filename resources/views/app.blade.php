@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="{{{ asset('favicon.ico') }}}">
   <script type="text/javascript">
     window.vuebnb_server_data = "{!! addslashes(json_encode($data)) !!}";
+    window.csrf_token = "{{ csrf_token() }}"
   </script>
 </head>
 
