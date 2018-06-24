@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import router from './router';
+import axios from 'axios';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -37,6 +39,18 @@ export default new Vuex.Store({
   getters: {
     getListing(state) {
       return id => state.listings.find(listing => id == listing.id);
+    },
+  },
+  actions: {
+    toggleSaved({ commit, state }, id) {
+      debugger;
+      if (state.auth) {
+        axios
+          .post('/api/user/toggle_saved', { id })
+          .then(() => commit('toggleSaved', id));
+      } else {
+        router.push('/login');
+      }
     },
   },
 });
