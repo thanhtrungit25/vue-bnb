@@ -5,6 +5,11 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
+axios.defaults.headers.common = {
+  'X-Requested-With': 'XMLHttpRequest',
+  'X-CSRF-TOKEN': window.csrf_token,
+};
+
 export default new Vuex.Store({
   state: {
     saved: [],
@@ -43,7 +48,6 @@ export default new Vuex.Store({
   },
   actions: {
     toggleSaved({ commit, state }, id) {
-      debugger;
       if (state.auth) {
         axios
           .post('/api/user/toggle_saved', { id })
